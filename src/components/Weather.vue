@@ -44,7 +44,7 @@
 			</div>
 		</div>
     </div>
-    <Om2m class="" msg="Test"/>
+    <Om2m class="" msg="Data List"/>
   </div>
 </template>
 
@@ -76,7 +76,7 @@ export default {
       this.taiwanCountry = result;
       this.draw(this.taiwanCountry);
       let el = document.querySelectorAll('path');
-      console.log(el)
+      // console.log(el)
       el.forEach(node=>{
         node.addEventListener('click',(el)=>{
         this.currentCountry = el.srcElement.id;
@@ -136,7 +136,7 @@ export default {
   display: flex;
   flex-direction: row;
   margin: 0 auto;
-  width: 70%;
+  width: 50%;
   align-items: center;
 }
 .weather-left,

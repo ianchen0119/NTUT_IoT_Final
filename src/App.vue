@@ -1,6 +1,6 @@
 <template>
   <div id="nav">
-    <a href="#">IoTFinal</a>
+    <a href="#">IoT_Final</a>
     <router-link to="/">Home</router-link>
     <router-link to="/about">About</router-link>
   </div>
