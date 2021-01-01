@@ -44,16 +44,21 @@
 			</div>
 		</div>
     </div>
+    <Om2m class="" msg="Test"/>
   </div>
 </template>
 
 <script>
 import * as d3 from 'd3';
 import * as topojson from 'topojson';
+import Om2m from '@/components/Om2m.vue';
 export default {
   name: 'Weather',
   props: {
     msg: String
+  },
+  components:{
+    Om2m
   },
   data(){
     return{
