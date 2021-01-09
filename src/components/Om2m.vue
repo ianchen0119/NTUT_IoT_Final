@@ -1,30 +1,32 @@
 <template>
-<div class="om2m">
-    <!-- <h1>{{msg}}</h1> -->
-    <br>
-    <div class="dataList" v-if="done">
+    <div class="dataList" v-show="done">
         <!-- <div v-for="data in arrForChart" v-bind:key = "data.id">
             {{data["time"]}}
         </div> -->
         <div class="chart__container">
             <div>
                 <h2>Humidity</h2>
-                <div id="Humidity"></div>
+                <div id="Humidity">
+                    <svg width='450' height='250' style=''></svg>
+                </div>
             </div>
             <div>
                 <h2>Temperature</h2>
-                <div id="Temperature"></div>
+                <div id="Temperature">
+                    <svg width='450' height='250' style=''></svg>
+                </div>
             </div>
             <div>
                 <h2>PM2.5</h2>
-                <div id="PM"></div>
+                <div id="PM">
+                    <svg width='450' height='250' style=''></svg>
+                </div>
             </div>
         </div>
     </div>
-    <div v-else>
+    <div v-show="!done">
         Loading...
     </div>
-</div>
 </template>
 <script>
 import * as d3 from 'd3';
@@ -96,6 +98,8 @@ export default {
             )
         },
         drawChart(temp){
+            d3.select(".dataList").select(".chart__container");
+            console.log(temp)
             let dataset = this.arrForChart;
             let Xdata = dataset.map(function (d) {
                 return d.id;
@@ -107,9 +111,9 @@ export default {
             let Xaxis = d3.axisBottom(Xscale); 
             let gXaxis = d3
             .select(`#${temp}`)
-            .append("svg")
-            .attr("width", 450)
-            .attr("height", 250)
+            .select("svg")
+            // .attr("width", 450)
+            // .attr("height", 250)
             .style("border", "1px solid #00000060")
             .append("g")
             .attr("transform", "translate(30,220)");
